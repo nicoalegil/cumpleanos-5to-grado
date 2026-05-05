@@ -21,208 +21,133 @@
     --amber-border: #F0C97A;
     --red: #791F1F;
     --red-bg: #FCEBEB;
+    --gray-bg: #F1EFE8;
     --radius: 12px;
     --radius-sm: 8px;
     --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.05);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text);
-    min-height: 100vh;
-    padding: 0;
-  }
+  body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--text); min-height: 100vh; }
+
   header {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: var(--shadow);
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 1rem 1.25rem; display: flex; align-items: center; gap: 14px;
+    position: sticky; top: 0; z-index: 10; box-shadow: var(--shadow);
   }
-  .header-icon {
-    width: 40px; height: 40px;
-    background: #1A1916;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; flex-shrink: 0;
-  }
+  .header-icon { width: 40px; height: 40px; background: #1A1916; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
   .header-title { font-size: 16px; font-weight: 600; }
   .header-sub { font-size: 13px; color: var(--text-muted); margin-top: 1px; }
 
-  .container { max-width: 640px; margin: 0 auto; padding: 1.25rem 1rem 4rem; }
+  .container { max-width: 640px; margin: 0 auto; padding: 1.25rem 1rem 5rem; }
 
-  .tabs {
-    display: flex; gap: 6px; margin-bottom: 1.5rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 5px;
+  .notice {
+    font-size: 13px; color: var(--text-muted); background: var(--surface);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 10px 14px; margin-bottom: 1.25rem; line-height: 1.5;
   }
-  .tab {
-    flex: 1; padding: 8px 10px;
-    border-radius: var(--radius-sm);
-    border: none; background: transparent;
-    cursor: pointer; font-size: 13px; font-weight: 500;
-    color: var(--text-muted); font-family: 'DM Sans', sans-serif;
-    transition: all 0.15s;
-  }
+
+  .tabs { display: flex; gap: 6px; margin-bottom: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 5px; }
+  .tab { flex: 1; padding: 8px 10px; border-radius: var(--radius-sm); border: none; background: transparent; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--text-muted); font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
   .tab.active { background: var(--text); color: #fff; }
+
   .section { display: none; }
   .section.active { display: block; }
 
-  /* Month nav */
-  .month-nav-row {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 1rem;
-  }
+  .month-nav-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
   .month-nav { display: flex; align-items: center; gap: 10px; }
-  .mnav-btn {
-    width: 34px; height: 34px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border);
-    background: var(--surface);
-    cursor: pointer; font-size: 16px; color: var(--text-muted);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: var(--shadow);
-  }
+  .mnav-btn { width: 34px; height: 34px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--surface); cursor: pointer; font-size: 16px; color: var(--text-muted); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); }
   .mnav-btn:hover { background: var(--bg); }
   .month-label { font-size: 17px; font-weight: 600; min-width: 150px; text-align: center; }
-  .month-count {
-    font-size: 12px; padding: 3px 10px;
-    border-radius: 20px; font-weight: 500;
-    background: var(--text); color: #fff;
-  }
+  .month-count { font-size: 12px; padding: 3px 10px; border-radius: 20px; font-weight: 500; background: var(--text); color: #fff; }
 
-  /* Summary bar */
-  .summary-bar {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 8px; margin-bottom: 1.25rem;
-  }
-  .s-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 0.75rem 1rem;
-    box-shadow: var(--shadow);
-  }
+  .summary-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 1.25rem; }
+  .s-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.75rem 1rem; box-shadow: var(--shadow); }
   .s-num { font-size: 24px; font-weight: 600; }
   .s-lbl { font-size: 11px; color: var(--text-muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
 
-  /* Bday cards */
   .bday-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1rem 1.1rem;
-    margin-bottom: 10px;
-    display: flex; align-items: flex-start; gap: 14px;
-    box-shadow: var(--shadow);
-    transition: border-color 0.15s;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem 1.1rem; margin-bottom: 10px;
+    display: flex; align-items: flex-start; gap: 14px; box-shadow: var(--shadow);
+    transition: border-color 0.15s, background 0.15s;
   }
   .bday-card.is-today { border-color: var(--green-border); background: #FAFFFD; }
   .bday-card.is-upcoming { border-color: var(--amber-border); background: #FFFEF9; }
-  .day-col { min-width: 36px; text-align: center; padding-top: 2px; }
+  .bday-card.is-paid { background: var(--gray-bg); border-color: var(--border-soft); }
+
+  .day-col { min-width: 36px; text-align: center; padding-top: 3px; }
   .day-num { font-size: 26px; font-weight: 600; line-height: 1; color: var(--text-muted); }
   .day-num.c-green { color: var(--green); }
   .day-num.c-amber { color: var(--amber); }
-  .avatar {
-    width: 42px; height: 42px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 600; font-size: 14px; flex-shrink: 0; margin-top: 2px;
-  }
+  .day-num.c-gray { opacity: 0.4; }
+
+  .avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+
   .bday-main { flex: 1; min-width: 0; }
   .bday-top { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 4px; }
   .bday-name { font-weight: 600; font-size: 14px; }
+  .bday-card.is-paid .bday-name { opacity: 0.5; text-decoration: line-through; text-decoration-color: var(--text-muted); }
+
   .spill { font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 500; white-space: nowrap; }
-  .spill-today { background: var(--green-bg); color: var(--green); }
-  .spill-upcoming { background: var(--amber-bg); color: var(--amber); }
-  .bday-parent { font-size: 13px; color: var(--text-muted); margin-bottom: 3px; }
-  .bday-bank { font-size: 12px; color: var(--text-muted); margin-bottom: 3px; }
-  .bday-cbu { font-size: 12px; color: var(--text-muted); font-family: 'DM Mono', monospace; word-break: break-all; }
-  .bday-alias { font-size: 12px; color: var(--text-muted); margin-top: 2px; font-family: 'DM Mono', monospace; }
-  .actions { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+  .s-today { background: var(--green-bg); color: #085041; }
+  .s-upcoming { background: var(--amber-bg); color: #633806; }
+  .s-paid { background: var(--green-bg); color: #085041; }
+
+  .bday-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 3px; }
+  .bday-cbu { font-size: 12px; color: var(--text-muted); font-family: 'DM Mono', monospace; word-break: break-all; margin-bottom: 2px; }
+  .bday-alias { font-size: 12px; color: var(--text-muted); font-family: 'DM Mono', monospace; }
+
+  .actions { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
+
   .copy-btn {
-    padding: 6px 12px; border-radius: var(--radius-sm);
+    padding: 5px 10px; border-radius: var(--radius-sm);
     border: 1px solid var(--border); background: var(--bg);
-    cursor: pointer; font-size: 12px; font-weight: 500;
+    cursor: pointer; font-size: 11px; font-weight: 500;
     color: var(--text-muted); font-family: 'DM Sans', sans-serif;
     white-space: nowrap; transition: all 0.15s;
   }
   .copy-btn:hover { background: var(--surface); color: var(--text); }
-  .copy-btn.alias-btn { font-family: 'DM Mono', monospace; font-size: 11px; }
 
-  /* Empty */
+  .pay-btn {
+    padding: 7px 11px; border-radius: var(--radius-sm);
+    border: 1px solid var(--border); background: var(--surface);
+    cursor: pointer; font-size: 12px; font-weight: 500;
+    color: var(--text-muted); font-family: 'DM Sans', sans-serif;
+    white-space: nowrap; display: flex; align-items: center; gap: 6px;
+    transition: all 0.2s;
+  }
+  .pay-btn:hover { background: var(--green-bg); color: var(--green); border-color: var(--green-border); }
+  .pay-btn.paid { background: var(--green-bg); color: var(--green); border-color: var(--green-border); }
+  .pay-btn.paid:hover { background: var(--red-bg); color: var(--red); border-color: #F09595; }
+
+  .check-circle {
+    width: 16px; height: 16px; border-radius: 50%;
+    border: 1.5px solid currentColor;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .pay-btn.paid .check-circle { background: var(--green); border-color: var(--green); }
+  .pay-btn.paid:hover .check-circle { background: var(--red); border-color: var(--red); }
+  .check-svg { display: none; }
+  .pay-btn.paid .check-svg { display: block; }
+
   .empty-msg { text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-size: 14px; line-height: 1.7; }
-  .empty-emoji { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
 
-  /* Form */
-  .form-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1.25rem;
-    box-shadow: var(--shadow);
-  }
-  .form-title { font-size: 15px; font-weight: 600; margin-bottom: 1rem; }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-  .form-group { display: flex; flex-direction: column; gap: 5px; }
-  .form-label { font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
-  .form-input {
-    padding: 9px 12px; border-radius: var(--radius-sm);
-    border: 1px solid var(--border); background: var(--bg);
-    font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--text);
-    outline: none; transition: border-color 0.15s;
-  }
-  .form-input:focus { border-color: var(--text); background: var(--surface); }
-  .form-input-mono { font-family: 'DM Mono', monospace; font-size: 13px; }
-  .submit-btn {
-    width: 100%; padding: 11px; border-radius: var(--radius-sm);
-    border: none; background: var(--text); color: #fff;
-    cursor: pointer; font-size: 14px; font-weight: 600;
-    font-family: 'DM Sans', sans-serif; margin-top: 4px;
-    transition: opacity 0.15s;
-  }
-  .submit-btn:hover { opacity: 0.85; }
-  .form-msg { margin-top: 10px; font-size: 13px; font-weight: 500; }
-
-  /* List */
-  .list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-  .list-title { font-size: 15px; font-weight: 600; }
-  .mes-sep {
-    font-size: 11px; font-weight: 600; color: var(--text-muted);
-    letter-spacing: 0.08em; text-transform: uppercase;
-    margin: 1.1rem 0 6px; padding-left: 2px;
-  }
-  .list-item {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 0.7rem 1rem;
-    margin-bottom: 7px; display: flex; align-items: center; gap: 10px;
-    box-shadow: var(--shadow);
-  }
-  .list-av {
-    width: 36px; height: 36px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 600; font-size: 12px; flex-shrink: 0;
-  }
+  .mes-sep { font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin: 1.2rem 0 6px; padding-left: 2px; }
+  .list-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.7rem 1rem; margin-bottom: 7px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow); }
+  .list-av { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 12px; flex-shrink: 0; }
   .list-info { flex: 1; min-width: 0; }
   .list-name { font-size: 13px; font-weight: 600; }
   .list-detail { font-size: 12px; color: var(--text-muted); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .del-btn {
-    width: 30px; height: 30px; border-radius: var(--radius-sm);
-    border: 1px solid var(--border); background: transparent;
-    cursor: pointer; color: var(--text-muted); font-size: 16px;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.15s;
-  }
-  .del-btn:hover { background: var(--red-bg); color: var(--red); border-color: #F09595; }
+  .paid-badge { font-size: 11px; padding: 3px 9px; border-radius: 20px; background: var(--green-bg); color: var(--green); font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+  .pending-badge { font-size: 11px; padding: 3px 9px; border-radius: 20px; background: var(--gray-bg); color: var(--text-muted); font-weight: 500; white-space: nowrap; flex-shrink: 0; border: 1px solid var(--border); }
 
   @media (max-width: 420px) {
-    .form-grid { grid-template-columns: 1fr; }
-    .summary-bar { grid-template-columns: repeat(3,1fr); gap: 6px; }
+    .summary-bar { gap: 6px; }
     .s-card { padding: 0.6rem 0.75rem; }
     .s-num { font-size: 20px; }
+    .actions { gap: 5px; }
+    .pay-btn { font-size: 11px; padding: 6px 9px; }
   }
 </style>
 </head>
@@ -237,13 +162,16 @@
 </header>
 
 <div class="container">
-  <div class="tabs">
-    <button class="tab active" onclick="switchTab('mes')">Este mes</button>
-    <button class="tab" onclick="switchTab('agregar')">Agregar</button>
-    <button class="tab" onclick="switchTab('lista')">Todos</button>
+
+  <div class="notice">
+    📋 Marcá cada transferencia cuando la hagas. El check se guarda solo en tu dispositivo.
   </div>
 
-  <!-- MES -->
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('mes')">Este mes</button>
+    <button class="tab" onclick="switchTab('lista')">Todos los alumnos</button>
+  </div>
+
   <div id="tab-mes" class="section active">
     <div class="month-nav-row">
       <div class="month-nav">
@@ -255,64 +183,20 @@
     </div>
     <div class="summary-bar">
       <div class="s-card"><div class="s-num" id="s-total">0</div><div class="s-lbl">Cumpleaños</div></div>
-      <div class="s-card"><div class="s-num" id="s-today" style="color:var(--green);">0</div><div class="s-lbl">Hoy</div></div>
-      <div class="s-card"><div class="s-num" id="s-prox" style="color:var(--amber);">0</div><div class="s-lbl">Próx. 7 días</div></div>
+      <div class="s-card"><div class="s-num" id="s-paid" style="color:var(--green);">0</div><div class="s-lbl">Pagados</div></div>
+      <div class="s-card"><div class="s-num" id="s-pending" style="color:var(--amber);">0</div><div class="s-lbl">Pendientes</div></div>
     </div>
     <div id="bday-list"></div>
   </div>
 
-  <!-- AGREGAR -->
-  <div id="tab-agregar" class="section">
-    <div class="form-card">
-      <div class="form-title">Agregar alumno/a</div>
-      <div class="form-grid">
-        <div class="form-group" style="grid-column:1/-1;">
-          <label class="form-label">Nombre del alumno/a</label>
-          <input class="form-input" type="text" id="f-nombre" placeholder="Ej: Lucía García" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Día</label>
-          <select class="form-input" id="f-dia"></select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Mes</label>
-          <select class="form-input" id="f-mes">
-            <option value="0">Enero</option><option value="1">Febrero</option><option value="2">Marzo</option>
-            <option value="3">Abril</option><option value="4">Mayo</option><option value="5">Junio</option>
-            <option value="6">Julio</option><option value="7">Agosto</option><option value="8">Septiembre</option>
-            <option value="9">Octubre</option><option value="10">Noviembre</option><option value="11">Diciembre</option>
-          </select>
-        </div>
-        <div class="form-group" style="grid-column:1/-1;">
-          <label class="form-label">Nombre del padre / madre</label>
-          <input class="form-input" type="text" id="f-padre" placeholder="Ej: María González" />
-        </div>
-        <div class="form-group" style="grid-column:1/-1;">
-          <label class="form-label">CBU / CVU</label>
-          <input class="form-input form-input-mono" type="text" id="f-cbu" placeholder="Ej: 0000003100049842116799" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Alias (opcional)</label>
-          <input class="form-input form-input-mono" type="text" id="f-alias" placeholder="Ej: PLAYA.ETER.PAPEL" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Banco (opcional)</label>
-          <input class="form-input" type="text" id="f-banco" placeholder="Ej: BBVA, MP..." />
-        </div>
-      </div>
-      <button class="submit-btn" onclick="agregarAlumno()">+ Agregar alumno</button>
-      <div id="form-msg" class="form-msg"></div>
-    </div>
-  </div>
-
-  <!-- LISTA -->
   <div id="tab-lista" class="section">
-    <div class="list-header">
-      <span class="list-title">Todos los alumnos</span>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+      <span style="font-size:15px;font-weight:600;">Todos los alumnos</span>
       <span style="font-size:13px;color:var(--text-muted);" id="list-count"></span>
     </div>
     <div id="full-list"></div>
   </div>
+
 </div>
 
 <script>
@@ -323,56 +207,51 @@ const COLORS = [
   {bg:'#E6F1FB',text:'#0C447C'},{bg:'#EAF3DE',text:'#27500A'},
   {bg:'#FAEEDA',text:'#633806'},{bg:'#FCEBEB',text:'#791F1F'}
 ];
-
-const DATOS_BASE = [
-  {nombre:'Santiago Blanco Torralba',dia:3,mes:2,padre:'Soledad',cbu:'0170346540000041755329',alias:'santibb2016',banco:'BBVA',titular:'Torralba Soledad'},
-  {nombre:'Jean Brandon Perez Vallejo',dia:1,mes:3,padre:'Miguel',cbu:'0000003100049842116799',alias:'',banco:'Mercado Pago',titular:'Miguel Enrique Perez Castillo'},
-  {nombre:'Sophie Solignac',dia:11,mes:3,padre:'Lorena / Alejandro',cbu:'0000003100036891160020',alias:'futuremoney.mp',banco:'Mercado Pago',titular:'Lorena Daniela Rodriguez'},
-  {nombre:'Simón Karsz',dia:13,mes:4,padre:'Marcia / Ezequiel',cbu:'0140019903401904676851',alias:'BEBE.LORO.POZO',banco:'Provincia BS.As.',titular:'Marcia Andrea Picetti Salvo'},
-  {nombre:'Cruz Serra Oyuela',dia:23,mes:4,padre:'Victoria / Leo',cbu:'0720000788000016588190',alias:'Leoserra',banco:'Santander',titular:'Serra Niccolls Leonardo Jose'},
-  {nombre:'Emilia Malikova',dia:4,mes:5,padre:'Elena',cbu:'0000003100009773904348',alias:'elena.776.diurno.mp',banco:'Mercado Pago',titular:'Elena Malikova'},
-  {nombre:'Ambar Mmarilungo',dia:6,mes:5,padre:'Maira / Sebas',cbu:'0000003100057509403717',alias:'pm.porotos',banco:'Mercado Pago',titular:'Maira Sabrina Goytia'},
-  {nombre:'Renata Juarez',dia:21,mes:5,padre:'Graciela y Victor',cbu:'0070234030004051988114',alias:'GRABARROS.GAL',banco:'Galicia',titular:'Graciela Del Rosario Barros'},
-  {nombre:'Francesca Prieto Mori',dia:9,mes:6,padre:'Natalia / Sergio',cbu:'2850540440094039620858',alias:'natalia79macro',banco:'Macro',titular:'Mori Natalia Vanesa'},
-  {nombre:'Joaquin Gil Molina',dia:18,mes:7,padre:'Alina / Nico',cbu:'0110016730001610858965',alias:'alina.molina',banco:'BNA+',titular:'Alina Laura Molina'},
-  {nombre:'Valentina Bertonazzi',dia:27,mes:7,padre:'Belen / Dany',cbu:'0170019020000001062388',alias:'MUNDOHARINAVIRTUAL',banco:'BBVA',titular:'Bertonazzi Daniel Alfred'},
-  {nombre:'Gael Lux',dia:4,mes:8,padre:'Vero',cbu:'0170101840000005858282',alias:'MANERA.LOMA.ARCO',banco:'BBVA',titular:'Follonier Graciela'},
-  {nombre:'Federico Belen',dia:18,mes:8,padre:'Gabriela / Gabriel',cbu:'0170182740000031714961',alias:'G.MARECHAL',banco:'BBVA',titular:'Marechal Gabriela'},
-  {nombre:'Benjamin Lopez Hogrefe',dia:4,mes:9,padre:'Sergio / Romi',cbu:'0720166688000001391686',alias:'CUBETA.ALTURA.ASTRO',banco:'Santander',titular:'Lopez Sergio Daniel'},
-  {nombre:'Avril Gonzalez Parada',dia:29,mes:9,padre:'Norma',cbu:'0720197088000002945554',alias:'MADRID.SOMBRA.FLAUTA',banco:'Santander',titular:'Norma Ines Parada Sanchez'},
-  {nombre:'Anita Santiago',dia:1,mes:10,padre:'Valeria',cbu:'0720413988000001633236',alias:'TROTE AYUNO.ALTURA',banco:'Santander',titular:'Guastini Valeria'},
-  {nombre:'Priya De Bello',dia:10,mes:10,padre:'Ingrid / Luis',cbu:'0140014403401451487908',alias:'SERIE.MOSCU.NAIPE',banco:'Provincia BS.As.',titular:'Elba Ingrid Orellano'},
-  {nombre:'Agustina Mastromarino',dia:14,mes:10,padre:'Viviana / Jorge',cbu:'0170304540000036449079',alias:'PLAYA.ETER.PAPEL',banco:'BBVA',titular:'Mastromarino Jorge'},
-  {nombre:'Maia',dia:20,mes:10,padre:'Romina',cbu:'0170196440000001108480',alias:'ROMINACORREABBVA',banco:'BBVA',titular:'Correa Romina'},
-  {nombre:'Eva Dodero Arias',dia:27,mes:10,padre:'Agustina / Jorge',cbu:'0720176588000036097618',alias:'ACEITE.OBOE.LANA',banco:'Santander',titular:'Arias Almonacid Jorge Rolando'},
-  {nombre:'Leonel Albarenga Caggiano',dia:2,mes:11,padre:'Barbara / Alejandro',cbu:'0170035040000001620360',alias:'MIEL.RULO.RAYO',banco:'BBVA',titular:'Albarenga Alejandro'},
-  {nombre:'Isabella Blanco Perez',dia:17,mes:11,padre:'Silvana / Fernando',cbu:'0720055788000037300304',alias:'silvanadelourdes',banco:'Santander',titular:'Perez Silvana De Lourdes'},
-  {nombre:'Lina Ñancucheu',dia:29,mes:11,padre:'Florencia',cbu:'0150925401000125408715',alias:'LAMINA.AFRICA.ASTRO',banco:'ICBC',titular:'Adrian Gustavo Ñancucheu'},
+const ALUMNOS = [
+  {nombre:'Santiago Blanco Torralba',dia:3,mes:2,padre:'Soledad',cbu:'0170346540000041755329',alias:'santibb2016',banco:'BBVA'},
+  {nombre:'Jean Brandon Perez Vallejo',dia:1,mes:3,padre:'Miguel',cbu:'0000003100049842116799',alias:'',banco:'Mercado Pago'},
+  {nombre:'Sophie Solignac',dia:11,mes:3,padre:'Lorena / Alejandro',cbu:'0000003100036891160020',alias:'futuremoney.mp',banco:'Mercado Pago'},
+  {nombre:'Simón Karsz',dia:13,mes:4,padre:'Marcia / Ezequiel',cbu:'0140019903401904676851',alias:'BEBE.LORO.POZO',banco:'Provincia'},
+  {nombre:'Cruz Serra Oyuela',dia:23,mes:4,padre:'Victoria / Leo',cbu:'0720000788000016588190',alias:'Leoserra',banco:'Santander'},
+  {nombre:'Emilia Malikova',dia:4,mes:5,padre:'Elena',cbu:'0000003100009773904348',alias:'elena.776.diurno.mp',banco:'Mercado Pago'},
+  {nombre:'Ambar Mmarilungo',dia:6,mes:5,padre:'Maira / Sebas',cbu:'0000003100057509403717',alias:'pm.porotos',banco:'Mercado Pago'},
+  {nombre:'Renata Juarez',dia:21,mes:5,padre:'Graciela y Victor',cbu:'0070234030004051988114',alias:'GRABARROS.GAL',banco:'Galicia'},
+  {nombre:'Francesca Prieto Mori',dia:9,mes:6,padre:'Natalia / Sergio',cbu:'2850540440094039620858',alias:'natalia79macro',banco:'Macro'},
+  {nombre:'Joaquin Gil Molina',dia:18,mes:7,padre:'Alina / Nico',cbu:'0110016730001610858965',alias:'alina.molina',banco:'BNA+'},
+  {nombre:'Valentina Bertonazzi',dia:27,mes:7,padre:'Belen / Dany',cbu:'0170019020000001062388',alias:'MUNDOHARINAVIRTUAL',banco:'BBVA'},
+  {nombre:'Gael Lux',dia:4,mes:8,padre:'Vero',cbu:'0170101840000005858282',alias:'MANERA.LOMA.ARCO',banco:'BBVA'},
+  {nombre:'Federico Belen',dia:18,mes:8,padre:'Gabriela / Gabriel',cbu:'0170182740000031714961',alias:'G.MARECHAL',banco:'BBVA'},
+  {nombre:'Benjamin Lopez Hogrefe',dia:4,mes:9,padre:'Sergio / Romi',cbu:'0720166688000001391686',alias:'CUBETA.ALTURA.ASTRO',banco:'Santander'},
+  {nombre:'Avril Gonzalez Parada',dia:29,mes:9,padre:'Norma',cbu:'0720197088000002945554',alias:'MADRID.SOMBRA.FLAUTA',banco:'Santander'},
+  {nombre:'Anita Santiago',dia:1,mes:10,padre:'Valeria',cbu:'0720413988000001633236',alias:'TROTE.AYUNO.ALTURA',banco:'Santander'},
+  {nombre:'Priya De Bello',dia:10,mes:10,padre:'Ingrid / Luis',cbu:'0140014403401451487908',alias:'SERIE.MOSCU.NAIPE',banco:'Provincia'},
+  {nombre:'Agustina Mastromarino',dia:14,mes:10,padre:'Viviana / Jorge',cbu:'0170304540000036449079',alias:'PLAYA.ETER.PAPEL',banco:'BBVA'},
+  {nombre:'Maia',dia:20,mes:10,padre:'Romina',cbu:'0170196440000001108480',alias:'ROMINACORREABBVA',banco:'BBVA'},
+  {nombre:'Eva Dodero Arias',dia:27,mes:10,padre:'Agustina / Jorge',cbu:'0720176588000036097618',alias:'ACEITE.OBOE.LANA',banco:'Santander'},
+  {nombre:'Leonel Albarenga Caggiano',dia:2,mes:11,padre:'Barbara / Alejandro',cbu:'0170035040000001620360',alias:'MIEL.RULO.RAYO',banco:'BBVA'},
+  {nombre:'Isabella Blanco Perez',dia:17,mes:11,padre:'Silvana / Fernando',cbu:'0720055788000037300304',alias:'silvanadelourdes',banco:'Santander'},
+  {nombre:'Lina Ñancucheu',dia:29,mes:11,padre:'Florencia',cbu:'0150925401000125408715',alias:'LAMINA.AFRICA.ASTRO',banco:'ICBC'},
 ];
 
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
-function getAlumnos() {
-  try {
-    const s = JSON.parse(localStorage.getItem('alumnos_5toA_2026') || 'null');
-    if (s) return s;
-  } catch {}
-  const base = DATOS_BASE.map((a,i) => ({...a, id: 1000+i}));
-  saveAlumnos(base);
-  return base;
+function getPagos() { try { return JSON.parse(localStorage.getItem('pagos_5toA_2026') || '{}'); } catch { return {}; } }
+function pagoKey(a) { return a.mes + '-' + a.dia + '-' + a.nombre; }
+function isPaid(a) { return !!getPagos()[pagoKey(a)]; }
+function togglePago(nombre, mes, dia) {
+  const p = getPagos();
+  const k = mes + '-' + dia + '-' + nombre;
+  if (p[k]) delete p[k]; else p[k] = 1;
+  try { localStorage.setItem('pagos_5toA_2026', JSON.stringify(p)); } catch {}
+  renderMes();
 }
-function saveAlumnos(a) { try { localStorage.setItem('alumnos_5toA_2026', JSON.stringify(a)); } catch {} }
 
-function colorFor(name) {
-  let h = 0;
-  for (let c of name) h = (h * 31 + c.charCodeAt(0)) % 256;
-  return COLORS[Math.abs(h) % COLORS.length];
-}
-function getInitials(name) { return name.split(' ').map(p=>p[0]).join('').slice(0,2).toUpperCase(); }
+function colorFor(n) { let h=0; for(let c of n) h=(h*31+c.charCodeAt(0))%256; return COLORS[Math.abs(h)%COLORS.length]; }
+function getIni(n) { return n.split(' ').map(p=>p[0]).join('').slice(0,2).toUpperCase(); }
 
 function switchTab(t) {
-  ['mes','agregar','lista'].forEach((id,i) => {
+  ['mes','lista'].forEach((id,i) => {
     document.querySelectorAll('.tab')[i].classList.toggle('active', id===t);
     document.getElementById('tab-'+id).classList.toggle('active', id===t);
   });
@@ -388,127 +267,106 @@ function changeMonth(d) {
 
 function renderMes() {
   const today = new Date();
-  const tDay=today.getDate(), tMonth=today.getMonth(), tYear=today.getFullYear();
-  document.getElementById('month-label').textContent = MESES[currentMonth]+' '+currentYear;
-  const alumnos = getAlumnos().filter(a=>a.mes===currentMonth).sort((a,b)=>a.dia-b.dia);
-  document.getElementById('month-count').textContent = alumnos.length+(alumnos.length===1?' cumpleaños':' cumpleaños');
-  let cToday=0, cProx=0;
-  const isCurrent = currentMonth===tMonth && currentYear===tYear;
-  alumnos.forEach(a=>{
-    if (isCurrent && a.dia===tDay) cToday++;
-    else if (isCurrent && a.dia>tDay && a.dia<=tDay+7) cProx++;
-  });
-  document.getElementById('s-total').textContent = alumnos.length;
-  document.getElementById('s-today').textContent = cToday;
-  document.getElementById('s-prox').textContent = cProx;
+  const tD = today.getDate(), tM = today.getMonth(), tY = today.getFullYear();
+  document.getElementById('month-label').textContent = MESES[currentMonth] + ' ' + currentYear;
+  const list = ALUMNOS.filter(a => a.mes === currentMonth).sort((a,b) => a.dia - b.dia);
+  const pagados = list.filter(a => isPaid(a)).length;
+  document.getElementById('month-count').textContent = list.length + ' cumpleaños';
+  document.getElementById('s-total').textContent = list.length;
+  document.getElementById('s-paid').textContent = pagados;
+  document.getElementById('s-pending').textContent = list.length - pagados;
 
+  const isCurr = currentMonth === tM && currentYear === tY;
   const cont = document.getElementById('bday-list');
-  if (!alumnos.length) {
-    cont.innerHTML = '<div class="empty-msg"><span class="empty-emoji">📅</span>No hay cumpleaños en '+MESES[currentMonth]+'.<br>Usá las flechas para navegar otros meses.</div>';
+  if (!list.length) {
+    cont.innerHTML = '<div class="empty-msg">No hay cumpleaños en ' + MESES[currentMonth] + '.<br>Usá las flechas para navegar otros meses.</div>';
     return;
   }
-  cont.innerHTML = alumnos.map(a => {
+
+  cont.innerHTML = list.map(a => {
     const col = colorFor(a.nombre);
-    const ini = getInitials(a.nombre);
-    const isToday = isCurrent && a.dia===tDay;
-    const isUpcoming = isCurrent && a.dia>tDay && a.dia<=tDay+7;
-    const dayClass = isToday ? 'c-green' : isUpcoming ? 'c-amber' : '';
-    const cardClass = isToday ? 'bday-card is-today' : isUpcoming ? 'bday-card is-upcoming' : 'bday-card';
-    const statusHtml = isToday
-      ? '<span class="spill spill-today">🎉 Hoy</span>'
-      : isUpcoming ? `<span class="spill spill-upcoming">En ${a.dia-tDay} días</span>` : '';
-    const cbuShort = a.cbu.length>22 ? a.cbu.slice(0,10)+'…'+a.cbu.slice(-6) : a.cbu;
-    const aliasBtns = a.alias
-      ? `<button class="copy-btn alias-btn" onclick="copyText('${a.alias}',this,'Alias')">Copiar alias</button>` : '';
+    const paid = isPaid(a);
+    const isToday = isCurr && a.dia === tD;
+    const isUpcoming = isCurr && a.dia > tD && a.dia <= tD + 7;
+    const isPast = isCurr && a.dia < tD;
+    const dayClass = isToday ? 'c-green' : isUpcoming ? 'c-amber' : isPast ? 'c-gray' : '';
+    const cardClass = 'bday-card' + (paid ? ' is-paid' : isToday ? ' is-today' : isUpcoming ? ' is-upcoming' : '');
+
+    let statusHtml = '';
+    if (paid) statusHtml = '<span class="spill s-paid">✓ Pagado</span>';
+    else if (isToday) statusHtml = '<span class="spill s-today">Hoy</span>';
+    else if (isUpcoming) statusHtml = '<span class="spill s-upcoming">En ' + (a.dia - tD) + ' días</span>';
+
+    const cbuShort = a.cbu.length > 22 ? a.cbu.slice(0,10) + '…' + a.cbu.slice(-6) : a.cbu;
+    const payLabel = paid ? 'Desmarcar' : 'Marcar pagado';
+    const payClass = 'pay-btn' + (paid ? ' paid' : '');
+    const safeNombre = a.nombre.replace(/'/g, "\\'");
+
     return `<div class="${cardClass}">
       <div class="day-col"><div class="day-num ${dayClass}">${a.dia}</div></div>
-      <div class="avatar" style="background:${col.bg};color:${col.text};">${ini}</div>
+      <div class="avatar" style="background:${col.bg};color:${col.text};">${getIni(a.nombre)}</div>
       <div class="bday-main">
         <div class="bday-top"><span class="bday-name">${a.nombre}</span>${statusHtml}</div>
-        <div class="bday-parent">Transferir a: <strong>${a.padre}</strong>${a.titular ? ' · '+a.titular : ''}</div>
-        ${a.banco ? `<div class="bday-bank">🏦 ${a.banco}</div>` : ''}
+        <div class="bday-sub">Transferir a: <strong>${a.padre}</strong></div>
+        <div class="bday-sub">${a.banco}</div>
         <div class="bday-cbu">${cbuShort}</div>
         ${a.alias ? `<div class="bday-alias">@${a.alias}</div>` : ''}
       </div>
       <div class="actions">
-        <button class="copy-btn" onclick="copyText('${a.cbu}',this,'CBU')">Copiar CBU</button>
-        ${aliasBtns}
+        <button class="copy-btn" onclick="copyText('${a.cbu}', this)">Copiar CBU</button>
+        ${a.alias ? `<button class="copy-btn" onclick="copyText('${a.alias}', this)">Copiar alias</button>` : ''}
+        <button class="${payClass}" onclick="togglePago('${safeNombre}', ${a.mes}, ${a.dia})">
+          <div class="check-circle">
+            <svg class="check-svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
+              <path d="M1 3.5L3.5 6L8 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          ${payLabel}
+        </button>
       </div>
     </div>`;
   }).join('');
 }
 
-function copyText(text, btn, label) {
-  navigator.clipboard.writeText(text).then(()=>{
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
     const orig = btn.textContent;
     btn.textContent = '✓ Copiado!';
     btn.style.color = 'var(--green)';
-    setTimeout(()=>{ btn.textContent=orig; btn.style.color=''; }, 2000);
-  }).catch(()=>{
+    setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 2000);
+  }).catch(() => {
     const ta = document.createElement('textarea');
     ta.value = text; document.body.appendChild(ta); ta.select();
     document.execCommand('copy'); document.body.removeChild(ta);
+    const orig = btn.textContent;
     btn.textContent = '✓ Copiado!';
-    setTimeout(()=>{ btn.textContent=label==='CBU'?'Copiar CBU':'Copiar alias'; }, 2000);
+    setTimeout(() => { btn.textContent = orig; }, 2000);
   });
 }
 
 function renderLista() {
-  const alumnos = getAlumnos().sort((a,b)=>a.mes-b.mes||a.dia-b.dia);
-  document.getElementById('list-count').textContent = alumnos.length+' alumnos';
+  const sorted = ALUMNOS.slice().sort((a,b) => a.mes - b.mes || a.dia - b.dia);
+  document.getElementById('list-count').textContent = sorted.length + ' alumnos';
   let lastMes = -1;
-  document.getElementById('full-list').innerHTML = alumnos.map(a=>{
+  document.getElementById('full-list').innerHTML = sorted.map(a => {
     const col = colorFor(a.nombre);
-    const ini = getInitials(a.nombre);
+    const paid = isPaid(a);
     let sep = '';
-    if (a.mes!==lastMes) { sep=`<div class="mes-sep">${MESES[a.mes]}</div>`; lastMes=a.mes; }
-    const detail = `${a.dia} ${MESES[a.mes]} · ${a.padre}${a.banco?' · '+a.banco:''}`;
+    if (a.mes !== lastMes) { sep = `<div class="mes-sep">${MESES[a.mes]}</div>`; lastMes = a.mes; }
     return `${sep}<div class="list-item">
-      <div class="list-av" style="background:${col.bg};color:${col.text};">${ini}</div>
+      <div class="list-av" style="background:${col.bg};color:${col.text};">${getIni(a.nombre)}</div>
       <div class="list-info">
         <div class="list-name">${a.nombre}</div>
-        <div class="list-detail">${detail}</div>
+        <div class="list-detail">${a.dia} ${MESES[a.mes]} · ${a.padre} · ${a.banco}</div>
       </div>
-      <button class="copy-btn" style="font-size:11px;" onclick="copyText('${a.cbu}',this,'CBU')">CBU</button>
-      <button class="del-btn" onclick="eliminar(${a.id})" title="Eliminar">×</button>
+      ${paid
+        ? '<span class="paid-badge">✓ Pagado</span>'
+        : '<span class="pending-badge">Pendiente</span>'
+      }
     </div>`;
   }).join('');
 }
 
-function agregarAlumno() {
-  const nombre = document.getElementById('f-nombre').value.trim();
-  const cbu = document.getElementById('f-cbu').value.trim();
-  const padre = document.getElementById('f-padre').value.trim();
-  const alias = document.getElementById('f-alias').value.trim();
-  const banco = document.getElementById('f-banco').value.trim();
-  const dia = parseInt(document.getElementById('f-dia').value);
-  const mes = parseInt(document.getElementById('f-mes').value);
-  const msg = document.getElementById('form-msg');
-  if (!nombre||!cbu) {
-    msg.style.color='var(--red)'; msg.textContent='Completá al menos el nombre y el CBU/CVU.'; return;
-  }
-  const alumnos = getAlumnos();
-  alumnos.push({nombre,dia,mes,padre,cbu,alias,banco,titular:'',id:Date.now()});
-  saveAlumnos(alumnos);
-  ['f-nombre','f-cbu','f-padre','f-alias','f-banco'].forEach(id=>document.getElementById(id).value='');
-  msg.style.color='var(--green)'; msg.textContent='✓ '+nombre+' agregado/a correctamente.';
-  setTimeout(()=>msg.textContent='',3000);
-  renderMes();
-}
-
-function eliminar(id) {
-  if (!confirm('¿Eliminar este alumno?')) return;
-  saveAlumnos(getAlumnos().filter(a=>a.id!==id));
-  renderLista(); renderMes();
-}
-
-function initDias() {
-  const sel = document.getElementById('f-dia');
-  for (let i=1;i<=31;i++){const o=document.createElement('option');o.value=i;o.textContent=i;sel.appendChild(o);}
-}
-
-initDias();
-document.getElementById('f-mes').value = new Date().getMonth();
 renderMes();
 </script>
 </body>
